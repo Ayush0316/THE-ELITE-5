@@ -257,6 +257,8 @@ def data(request):
                 sheet = wb.active
                 saving_to_database(sheet)
                 obj = H1BDisclosure.objects.all()
+                answer = "Loading to DATABASE COMPLETED"
+        answer = "Loading to DATABASE COMPLETED"
         context = {"to_show": answer}
         return render(request,"data_analysis/homePage.html", context) 
 
