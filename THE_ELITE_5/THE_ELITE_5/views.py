@@ -23,6 +23,8 @@ import csv
 #         form = MyForm()
 #     return render(request, 'your_template.html', {'form': MyForm()})
 
+
+
 def saving_to_database(sheet):
     # Database connection parameters
     db_params = {
@@ -36,7 +38,7 @@ def saving_to_database(sheet):
 
     # # Table name in the database
     # table_name = 'NEXT_TESTING'
-    table_name = 'xlsx_to_sql_testing'
+    table_name = 'NEXT_TESTING'
 
     # Establish a database connection
     conn = psycopg2.connect(**db_params)
