@@ -216,52 +216,49 @@ def working_on_data(col_name, func):
         ans = pre75(data_list)
     return ans
     
+def count_non_null_values(row):
+    count = 0
+    for value in row:
+        if value is not None:
+            count += 1
+    return count
+
+
+def total(ans):
+    data = H1BDisclosure.objects.values_list(ans.lower(), flat=True)
+    data_list = list(data)
+    ans = count_non_null_values(data_list)
+    return ans
 
 def data(request):
     if request.method == "POST":
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
-        print("post requesting")
         # print(request.header)
         if (len(request.POST.keys())) >= 2:
-            print("fund")
             key = list(request.POST.keys())
             ans = request.POST.get(key[-1])
-            column_name = options[ans]
-            ans = working_on_data(column_name, key)
-            print(ans)
-            print("dfah")
+            column_name = options.get(ans)
+
+            answer = 0
+            if(column_name != None):
+                answer = working_on_data(column_name, key)
+            else:
+                answer = total(ans)
+            print(answer)
         else:
             uploaded_file = request.FILES['document']
-            print(uploaded_file.name)
+
             
             if uploaded_file.name.endswith('.xlsx'):
-                print("ENDING WITH XLSX")
+
                 # Load the Excel file using openpyxl
                 wb = load_workbook(uploaded_file, read_only=True)
 
                 # Assume you want to convert the first sheet to CSV
                 sheet = wb.active
-                print("ACTIVE SHEETS")
                 saving_to_database(sheet)
                 obj = H1BDisclosure.objects.all()
    
         return render(request,"data_analysis/homePage.html") 
-    print("GET REQUESTING")
+
     return render(request,"data_analysis/homePage.html") 
 
