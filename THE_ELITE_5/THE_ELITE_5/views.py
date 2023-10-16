@@ -233,12 +233,12 @@ def total(ans):
 def data(request):
     if request.method == "POST":
         # print(request.header)
+        answer = 0
         if (len(request.POST.keys())) >= 2:
             key = list(request.POST.keys())
             ans = request.POST.get(key[-1])
             column_name = options.get(ans)
 
-            answer = 0
             if(column_name != None):
                 answer = working_on_data(column_name, key)
             else:
@@ -257,8 +257,8 @@ def data(request):
                 sheet = wb.active
                 saving_to_database(sheet)
                 obj = H1BDisclosure.objects.all()
-   
-        return render(request,"data_analysis/homePage.html") 
+        context = {"to_show": answer}
+        return render(request,"data_analysis/homePage.html", context) 
 
     return render(request,"data_analysis/homePage.html") 
 
