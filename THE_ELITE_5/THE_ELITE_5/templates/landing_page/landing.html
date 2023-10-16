@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <link rel="icon" href="{% static 'loading/v.png' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  </head>
+
+  <body>
+    <div class="scale- -z-10 background">
+      <img src="{% static 'loading/bg.png' %}" class="w-[100vw] overflow-x-hidden" alt="" />
+    </div>
+
+    <nav
+      class="h-[9vh] bg-purple-600 fixed top-0 w-full flex items-center transition ease-linear absolute z-10"
+    >
+      <div class="flex items-center">
+        <div
+          class="flex justify-around items-center text-xl text-white space-x-[4vw]"
+        >
+          <div class="bg-white h-[5vh] w-[15vh] ml-[4vw] rounded-md box">
+            <img src="{% static 'loading/v2.png' %}" class="rounded-md" alt="" />
+          </div>
+          <li class="list-none cursor-pointer">Home</li>
+          <li class="list-none cursor-pointer">About Us</li>
+          <li class="list-none cursor-pointer">Contact Us</li>
+        </div>
+        <div class="space-x-[2vw] absolute right-[4vw]">
+          <div>
+          <form action="/data" method="get">
+          <button
+            class="border border-white px-4 py-2 bg-purple-500 hover:bg-purple-300 hover:text-slate-600 transition ease-linear active:bg-white active:border-black text-white right-[4vw] rounded-3xl shadow-lg"
+          >
+            DATA ANALYSIS
+          </button>
+        </form>
+      </div>
+      <!-- <div>
+        <form action="/data" method="get">
+          <button
+            class="border border-white px-4 py-2 bg-violet-800 hover:bg-violet-900 active:bg-violet-950 text-white right-[4vw] transition ease-linear rounded-3xl shadow-lg"
+          >
+            Sign In
+          </button>
+        </form>
+      </div> -->
+        </div>
+      </div>
+    </nav>
+    <div>
+      <div class="flex">
+        <div
+          class="text-[50px] font-bold absolute right-[5vw] bottom-[15vh] w-[40vw] ml-[10vw] mt-[5vw] pl-10 rounded-2xl text-white p-5 bg-opacity-30 z-0"
+        >
+          Data-Driven Success: Maximize Profits and Efficiency Like Never Before
+          <div>
+            <button
+              class="text-2xl py-2 rounded-md bg-purple-600 cursor-pointer hover:bg-purple-700 active:bg-purple-800 transition ease-linear mt-[1vw] w-[32.4vw]"
+            >
+              Sign In For Free
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-[100vw] h-[8vw] bg-purple-500 text-white text-[50px] font-bold flex justify-center items-center"
+    >
+      WHAT WE DO?
+    </div>
+    <div
+      class="w-[100vw] h-[35vw] bg-white border flex items-center justify-center"
+    >
+      <div
+        class="w-[95vw] h-[90%] border border-purple-600 border-8 flex items-center justify-around"
+      >
+        <div
+          class="h-[80%] w-[28%] border rounded-md border-purple-500 border-2 flex-col items-center"
+        >
+          <img src="{% static 'loading/data_visualization.png' %}" class="p-2" alt="" />
+          <div class="flex justify-center text-3xl pt-2">
+            DATA VISUALIZATION
+          </div>
+        </div>
+        <div
+          class="h-[80%] w-[28%] border rounded-md border-purple-500 border-2 flex-col items-center justify-center"
+        >
+          <img
+            src="https://miro.medium.com/max/750/1*ybVOcMjUFnT2JBKn2khXnQ.jpeg"
+            class="p-2 pt-10"
+            alt=""
+          />
+          <div class="flex justify-center text-3xl pt-[43px]">
+            DATA ANALYSIS
+          </div>
+        </div>
+        <div
+          class="h-[80%] w-[28%] border rounded-md border-purple-500 border-2 flex-col items-center"
+        >
+          <img
+            src="https://cdn4.iconfinder.com/data/icons/planning-color/64/infographic-diagram-data-visualization-analysis-512.png"
+            class="px-16 p-[12px]"
+            alt=""
+          />
+          <div class="flex justify-center text-3xl pt-2">
+            INFO GRAPHICS
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-purple-700 text-white text-center py-8">
+      <p>&copy; 2023 Elite Data Analysis</p>
+    </footer>
+
+    <script src="{% static 'landing.js' %}"></script>
+  </body>
+</html>
